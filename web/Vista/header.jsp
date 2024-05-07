@@ -94,8 +94,8 @@
                     <a class="nav-link" href="#"><i class='bx bxs-calendar me-2'></i>Calendario</a>
                 </li>
                 <%--Opción exclusiva para los usuarios premium--%>
-                <%-- <li class="nav-item">
-                    <a class="nav-link" href="#"><i class='bx bxs-crown me-2'></i>Agendar Reunion</a>
-                </li> --%>
+                <li class="nav-item">
+                    <a class="nav-link" href="programarReunion.jsp"><i class='bx bxs-calendar-plus me-2'></i>Programar Reunion</a>
+                </li>
             </ul>
         </div>
