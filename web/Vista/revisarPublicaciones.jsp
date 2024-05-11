@@ -15,7 +15,7 @@
             <tr>
                 <td class="text-center">1</td>
                 <td class="text-center">HOLAAAAA</td>
-                <td class="text-center">Espero esten teniendo un buen dia, me gustaria saber su recomendacion para bocaditos para un cumpleaÃ±os de 2 aÃ±itos.</td>
+                <td class="text-center">Espero esten teniendo un buen dia, me gustaria saber su recomendación para bocaditos para un cumpleaños de 2 añitos.</td>
                 <td class="text-center">Laura Fernandez Sanchez</td>
                 <td class="text-center">12/05/2024</td>
                 <td class="text-center"></td>

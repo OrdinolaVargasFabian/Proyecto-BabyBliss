@@ -28,6 +28,12 @@
         $('#datatable-especialistasDisponibles').DataTable({
             columnDefs: [
                 {
+                    target: 3,
+                    render: function (data, type, full, meta) {
+                        return '<i class="bx bxs-circle text-success"></i>';
+                    }
+                },
+                {
                     // Actions
                     targets: -1,
                     searchable: false,
