@@ -63,21 +63,21 @@
                 search: '',
                 searchPlaceholder: 'Search..'
             },
-            responsive: true,
             buttons: [
                 {
-                    extend: 'excelHtml5',
-                    text: '<i class="bx bxs-file-export"></i>',
+                    extend: 'excel',
+                    text: '<i class="bx bxs-file-export me-2"></i>Excel',
                     titleAttr: 'Exportar a Excel',
-                    className: 'btn btn-icon btn-outline-primary'
+                    className: 'btn btn-success mx-3 rounded'
                 },
                 {
                     extend: 'print',
-                    text: '<i class="bx bxs-printer"></i>',
+                    text: '<i class="bx bxs-printer me-2"></i>Imprimir',
                     titleAttr: 'Imprimir',
-                    className: 'btn btn-icon btn-outline-primary'
+                    className: 'btn btn-info text-white rounded'
                 }
-            ]
+            ],
+            responsive: true
         });
     });
 
