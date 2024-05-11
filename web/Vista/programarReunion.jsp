@@ -1,90 +1,80 @@
 <%@ include file="header.jsp" %> <!-- Incorpora el código del archivo header -->
-<div class="container bg-white rounded shadow p-5">
-    <ul class="nav nav-pills mb-3" id="pills-tab-reunion" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-RPresencial-tab" data-bs-toggle="pill" data-bs-target="#pills-RPresencial" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Reunion Presencial</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-RRemota-tab" data-bs-toggle="pill" data-bs-target="#pills-RRemota" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Reunion Remota</button>
-        </li>
-    </ul>
-    <hr>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-RPresencial" role="tabpanel" aria-labelledby="pills-RPresencial-tab" tabindex="0">
-            <form action="" method="post" onsubmit="return false">
-                <div class="mb-3">
-                    <label for="inputNombre" class="form-label">Nombre de la reunion</label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombreReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputFecha" class="form-label">Fecha de la reunion</label>
-                    <input type="date" class="form-control" id="inputFecha" name="fechaReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputHora" class="form-label">Hora de la reunion</label>
-                    <input type="time" class="form-control" id="inputHora" name="horaReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputLugar" class="form-label">Lugar de la reunion</label>
-                    <select class="form-select" id="inputLugar" name="lugarReunion">
-                        <option selected>Selecciona un lugar</option>
-                        <option value="1">Clinica 1</option>
-                        <option value="2">Clinica 2</option>
-                        <option value="3">Clinica 3</option>
-                        <option value="4">Otro</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="inputEspDispo" class="form-label">Especialistas disponibles</label>
-                    <select class="form-select" id="inputEspDispo" name="especialistaDisponible">
-                        <option selected>Selecciona un especialista</option>
-                        <option value="1">Pediatra 1</option>
-                        <option value="2">Pediatra 2</option>
-                        <option value="3">Pediatra 3</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="inputTema" class="form-label">Tema de la reunion</label>
-                    <textarea class="form-control" id="inputTema" name="temaReunion" rows="3"></textarea>
-                </div>
-                <button onclick="agregarReunionPresencial()" class="btn btn-primary">Programar Reunion</button>
-            </form>
-        </div>
-        <div class="tab-pane fade" id="pills-RRemota" role="tabpanel" aria-labelledby="pills-RRemota-tab" tabindex="0">
-            <form action="" method="post" onsubmit="return false">
-                <div class="mb-3">
-                    <label for="inputNombre" class="form-label">Nombre de la reunion</label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombreReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputFecha" class="form-label">Fecha de la reunion</label>
-                    <input type="date" class="form-control" id="inputFecha" name="fechaReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputHora" class="form-label">Hora de la reunion</label>
-                    <input type="time" class="form-control" id="inputHora" name="horaReunion">
-                </div>
-                <div class="mb-3">
-                    <label for="inputEspDispo" class="form-label">Especialistas disponibles</label>
-                    <select class="form-select" id="inputEspDispo" name="especialistaDisponible">
-                        <option selected>Selecciona un especialista</option>
-                        <option value="1">Pediatra 1</option>
-                        <option value="2">Pediatra 2</option>
-                        <option value="3">Pediatra 3</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="inputTema" class="form-label">Tema de la reunion</label>
-                    <textarea class="form-control" id="inputTema" name="temaReunion" rows="3"></textarea>
-                </div>
-                <p class="text-danger">La reunion remota se llevara a cabo mediante la plataforma de videollamadas Zoom, se le asignará el link de invitación despues de concluir la programacion.</p>
-                <button onclick="agregarReunionRemota()" class="btn btn-primary">Programar Reunion</button>
-            </form>
-        </div>
-    </div>
+<div class="card-datatable table-responsive bg-light p-3 rounded shadow">
+    <table id="datatable-especialistasDisponibles" class="table table-striped m-3">
+        <thead>
+            <tr>
+                <td class="text-center">#</td>
+                <td class="text-center">NOMBRE COMPLETO</td>
+                <td class="text-center">ESPECIALIDAD</td>
+                <td class="text-center">ESTADO</td>
+                <td class="text-center">ACCIONES</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td class="text-center">Jorge Perez Zapata</td>
+                <td class="text-center">Pediatra</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+<%@ include file="../componentes/usuario/modalProgramarReunion.jsp" %>
 <%@ include file="footer.jsp" %> <!-- Incorpora el código del archivo footer -->
 <script>
+    $(document).ready(function () {
+        $('#datatable-especialistasDisponibles').DataTable({
+            columnDefs: [
+                {
+                    // Actions
+                    targets: -1,
+                    searchable: false,
+                    orderable: false,
+                    render: function (data, type, full, meta) {
+                        var btnProgramarReu = "<button onclick='(\"" + full['item_id'] + "\")' type='button' class='btn btn-icon btn-outline-success  me-2' data-bs-toggle='modal' data-bs-target='#mdlProgramarReunion'><i class='bx bxs-check-circle'></i></button>"
+
+                        return (
+                                '<div class="d-inline-block text-nowrap">' +
+                                btnProgramarReu +
+                                '</div>'
+                                );
+                    }
+                }
+            ],
+            order: [[0, 'desc']],
+            dom:'<"row mx-2"' +
+                '<"col-md-2"<"me-3"l>>' +
+                '<"col-md-10"<"dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0"fB>>' +
+                '>t' +
+                '<"row mx-2"' +
+                '<"col-sm-12 col-md-6"i>' +
+                '<"col-sm-12 col-md-6"p>' +
+                '>',
+            language: {
+                sLengthMenu: '_MENU_',
+                search: '',
+                searchPlaceholder: 'Search..'
+            },
+            responsive: true,
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="bx bxs-file-export"></i>',
+                    titleAttr: 'Exportar a Excel',
+                    className: 'btn btn-icon btn-outline-primary'
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="bx bxs-printer"></i>',
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-icon btn-outline-primary'
+                }
+            ]
+        });
+    });
+
     function agregarReunionPresencial(){
         swal.fire({
             title: 'Reunion programada',
