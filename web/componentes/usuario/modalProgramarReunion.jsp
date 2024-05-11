@@ -9,10 +9,10 @@
                 <div class="container bg-white rounded shadow p-5">
                     <ul class="nav nav-pills mb-3" id="pills-tab-reunion" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-RPresencial-tab" data-bs-toggle="pill" data-bs-target="#pills-RPresencial" type="button" role="tab" aria-controls="pills-home" aria-selected="true">reunión Presencial</button>
+                            <button class="nav-link active" id="pills-RPresencial-tab" data-bs-toggle="pill" data-bs-target="#pills-RPresencial" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Reunión Presencial</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-RRemota-tab" data-bs-toggle="pill" data-bs-target="#pills-RRemota" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">reunión Remota</button>
+                            <button class="nav-link" id="pills-RRemota-tab" data-bs-toggle="pill" data-bs-target="#pills-RRemota" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Reunión Remota</button>
                         </li>
                     </ul>
                     <hr>
@@ -45,7 +45,7 @@
                                     <label for="inputTema" class="form-label">Tema de la reunión</label>
                                     <textarea class="form-control" id="inputTema" name="temaReunion" rows="3"></textarea>
                                 </div>
-                                <button onclick="agregarReunionPresencial()" class="btn btn-primary">Programar Reunion</button>
+                                <button onclick="agregarReunionPresencial()" class="btn btn-primary">Programar Reunión</button>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="pills-RRemota" role="tabpanel" aria-labelledby="pills-RRemota-tab" tabindex="0">
