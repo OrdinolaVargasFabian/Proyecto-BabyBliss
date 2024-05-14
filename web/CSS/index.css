@@ -15,6 +15,14 @@
     margin-bottom: 30px; 
 }
 /*********************************INICIO*******************************************************/
+/*ZOOM DE IMAGEN*/
+.zoom {
+    width: 90%;
+    transition: transform .2s;
+}
+.zoom:hover {
+    transform: scale(1.1); 
+}
 /*IMAGEN*/
 .header{
     background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(../IMG/inicio.jpg);
