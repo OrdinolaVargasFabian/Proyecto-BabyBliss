@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Modelo.*" %> <!-- Importa la clase Usuario y Especialista -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,6 +47,33 @@
         <title>BabyBliss</title>
     </head>
     <body style="background: linear-gradient(to right, lightcyan, lightpink); padding-top: 12%;">
+            <%
+                session = request.getSession(false);
+
+                //Se inicializa la variable perfil_usuario - 0: No hay usuario, 1: Usuario, 2: Especialista
+                int perfil_usuario = 0;
+                String nombre_completo = null;
+                
+                //Se verifica si hay una sesion activa
+                if (session.getAttribute("user") == null) {
+                    perfil_usuario = 0;
+                } else {
+                    //se verifica si es un usuario o un especialista
+                    if (session.getAttribute("user").toString().contains("Usuario")) {
+                        // out.print("Usuario");
+                        perfil_usuario = 1;
+                        Usuario usuario = (Usuario) session.getAttribute("user");
+
+                        nombre_completo = usuario.getNombre() + " " + usuario.getAppat() + " " + usuario.getApmat();
+                    } else if (session.getAttribute("user").toString().contains("Especialista")) {
+                        // out.print("Especialista");
+                        perfil_usuario = 2;
+                        Especialista especialista = (Especialista) session.getAttribute("user");
+
+                        nombre_completo = especialista.getNombre() + " " + especialista.getAppat() + " " + especialista.getApmat();
+                    }
+                }
+            %>
         <div class="fixed-top">
             <%--Barra principal--%>
             <div class="d-flex justify-content-between align-items-center p-2" style="background: linear-gradient(to right, #C99FF4, #EDCEE9);">
@@ -55,7 +83,7 @@
                     <h2 class="ms-3" style='font-family: "Yellowtail", cursive; font-size: 50px;'>BabyBliss</h2>
                 </a>
             
-                <div class="d-inline-flex gap-5 align-items-center">
+                <div class="d-inline-flex gap-4 align-items-center">
                     <%--Menu desplegable de carrito de compras--%>
                     <div class="dropdown">
                         <a class="btn rounded-pill btn-icon btn-secondary float-end" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,6 +102,10 @@
                             <li>NO TIENES NOTIFICACIONES PENDIENTES</li>
                         </ul>
                     </div>
+                    <%
+                        //Se verifica si hay un usuario logueado
+                        if (perfil_usuario != 0) {
+                    %>
                     <%--Menu de usuario desplegable--%>
                     <div class="dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,9 +116,17 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#"><i class='bx bxs-crown me-2'></i>Suscribirse</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class='bx bx-log-out me-2'></i>Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" href="../srvIniciarSesion?accion=cerrar"><i class='bx bx-log-out me-2'></i>Cerrar Sesión</a></li>
                         </ul>
                     </div>
+                    <%
+                        //Si no hay un usuario logueado se muestra el boton de acceder
+                        } else {
+                    %>
+                    <a href="login.jsp" class="btn btn-outline-primary"><i class='bx bx-user-circle me-1'></i>Acceder</a>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <%@ include file="../componentes/usuario/offcanvasDetallesUsuario.jsp" %> <!-- Incorpora el código del offcanvas para ver los datos del usuario -->

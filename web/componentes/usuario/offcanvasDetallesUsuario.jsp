@@ -7,7 +7,9 @@
     <div>
         <div class="text-center">
             <img src="../default.png" alt="" style="width: 80px" class="rounded-circle mb-3">
-            <h4>Nombre de usuario</h4>
+            <%
+              out.print("<h4>"+nombre_completo+"</h4>");
+            %>
             <hr>
         </div>
         <!-- Formulario donde se veran los datos del usuario y los botones para editar sus datos o su foto de perfil-->

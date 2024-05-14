@@ -1,9 +1,20 @@
 <%@ include file="header.jsp" %> <!-- Incorpora el código del archivo header -->
 <div>
+    <%
+        //Se verifica si el usuario actual es especialista
+        if (perfil_usuario == 2) {
+    %>
     <!-- (ADMINISTRADOR) Redireccionar a REVISAR PUBLICACIONES PENDIENTES -->
     <div class="container bg-white rounded p-4 shadow">
         <a href="revisarPublicaciones.jsp" class="mt-3"><i class='bx bx-time me-2'></i>Revisar publicaciones pendientes</a>
     </div>
+    <%
+        }
+    %>
+    <%
+        //Se verifica si hay un usuario logueado
+        if (perfil_usuario != 0) {
+    %>
     <!-- Form para hacer una publicación -->
     <div class="container mt-3 bg-white rounded p-4 shadow">
         <form>
@@ -21,6 +32,9 @@
             </div>
         </form>
     </div>
+    <%
+        }
+    %>
     <div class="container mt-3 bg-white rounded p-4 shadow">
         <div>
             <!-- Encabezado de la publicación -->
