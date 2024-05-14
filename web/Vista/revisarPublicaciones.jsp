@@ -7,7 +7,7 @@
                 <td class="text-center">TITULO</td>
                 <td class="text-center">CONTENIDO</td>
                 <td class="text-center">USUARIO</td>
-                <td class="text-center">FECHA DE PUBLICACION</td>
+                <td class="text-center">FECHA DE PUBLICACIÓN</td>
                 <td class="text-center">ACCIONES</td>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
             <tr>
                 <td class="text-center">1</td>
                 <td class="text-center">HOLAAAAA</td>
-                <td class="text-center">Espero esten teniendo un buen dia, me gustaria saber su recomendaciï¿½n para bocaditos para un cumpleaï¿½os de 2 aï¿½itos.</td>
+                <td class="text-center">Espero esten teniendo un buen dia, me gustaria saber su recomendación para bocaditos para un cumpleaños de 2 añitos.</td>
                 <td class="text-center">Laura Fernandez Sanchez</td>
                 <td class="text-center">12/05/2024</td>
                 <td class="text-center"></td>

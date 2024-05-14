@@ -1,4 +1,9 @@
 <%@ include file="header.jsp" %> <!-- Incorpora el código del archivo header -->
+<%
+    //Se valida si el usuario tiene una membresia y evita cargar la página si no la tiene
+    if (membresia == "BabyGold") {
+%>
+<h2 class="ms-3 mb-3 text-center fw-bold" style="color: #9999ff;">SELECCIONAR ESPECIALISTA</h2>
 <div class="card-datatable table-responsive bg-light p-3 rounded shadow">
     <table id="datatable-especialistasDisponibles" class="table table-striped m-3">
         <thead>
@@ -39,7 +44,7 @@
                     searchable: false,
                     orderable: false,
                     render: function (data, type, full, meta) {
-                        var btnProgramarReu = "<button onclick='(\"" + full['item_id'] + "\")' type='button' class='btn btn-icon btn-outline-success  me-2' data-bs-toggle='modal' data-bs-target='#mdlProgramarReunion'><i class='bx bxs-check-circle'></i></button>"
+                        var btnProgramarReu = "<button onclick='(\"" + full['item_id'] + "\")' type='button' class='btn btn-icon btn-outline-success  me-2' data-bs-toggle='modal' data-bs-target='#mdlProgramarReunion'><i class='bx bxs-check-circle me-2'></i>Seleccionar</button>"
 
                         return (
                                 '<div class="d-inline-block text-nowrap">' +
@@ -99,3 +104,8 @@
         });
     }
 </script>
+<%
+    } else {
+        response.sendRedirect("index.jsp");
+    }
+%>

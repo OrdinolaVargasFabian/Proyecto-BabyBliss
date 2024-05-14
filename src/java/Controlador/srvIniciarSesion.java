@@ -76,7 +76,7 @@ public class srvIniciarSesion extends HttpServlet {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario",null);
             sesion.invalidate();
-            response.sendRedirect("Vista/login.jsp");
+            response.sendRedirect("Vista/index.jsp");
         }catch(Exception ex){
             System.out.println("ERROR al cerrar sesion..."+ex.getMessage());
        }

@@ -33,8 +33,16 @@
         </form>
     </div>
     <%
+        } else {
+    %>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>¡Bienvenido(a) a la sección de comunidad!</strong> Puedes iniciar sesión para compartir tus dudas.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <%
         }
     %>
+
     <div class="container mt-3 bg-white rounded p-4 shadow">
         <div>
             <!-- Encabezado de la publicaciÃ³n -->

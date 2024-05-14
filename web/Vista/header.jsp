@@ -53,6 +53,12 @@
                 //Se inicializa la variable perfil_usuario - 0: No hay usuario, 1: Usuario, 2: Especialista
                 int perfil_usuario = 0;
                 String nombre_completo = null;
+
+                String membresia = null;
+                //Se inicializa la variable marco_premium
+                String marco_premium = "";
+                //Se inicializa la variable corona para el nombre de los usuarios premium
+                String corona = "";
                 
                 //Se verifica si hay una sesion activa
                 if (session.getAttribute("user") == null) {
@@ -65,6 +71,13 @@
                         Usuario usuario = (Usuario) session.getAttribute("user");
 
                         nombre_completo = usuario.getNombre() + " " + usuario.getAppat() + " " + usuario.getApmat();
+
+                        if (usuario.getMembresia() != null && usuario.getMembresia() != ""){
+                            membresia = usuario.getMembresia();
+                        }
+
+                        marco_premium = membresia == "BabyGold" ? "border border-warning rounded-circle border-2" : "";
+                        corona = membresia == "BabyGold" ? "<i class='bx bxs-crown text-warning me-2'></i>" : "";
                     } else if (session.getAttribute("user").toString().contains("Especialista")) {
                         // out.print("Especialista");
                         perfil_usuario = 2;
@@ -109,13 +122,22 @@
                     <%--Menu de usuario desplegable--%>
                     <div class="dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../default.png" alt="" style="width: 50px" class="rounded-circle">
+                            <%
+                            out.print("<img src='../default.png' alt='' style='width: 50px' class='rounded-circle "+marco_premium+"'>");
+                            %>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasMiPerfil" role="button" aria-controls="offcanvasMiPerfil"><i class='bx bxs-user-circle me-2'></i>Mi cuenta</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <%
+                                //Se verifica si el usuario tiene una membresia
+                                if (membresia != "BabyGold") {
+                            %>
                             <li><a class="dropdown-item" href="#"><i class='bx bxs-crown me-2'></i>Suscribirse</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <%
+                                }
+                            %>
                             <li><a class="dropdown-item" href="../srvIniciarSesion?accion=cerrar"><i class='bx bx-log-out me-2'></i>Cerrar Sesión</a></li>
                         </ul>
                     </div>
@@ -144,9 +166,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class='bx bxs-calendar me-2'></i>Calendario</a>
                 </li>
+                <%
+                    //Se verifica si el usuario tiene una membresia
+                    if (membresia == "BabyGold") {
+                %>
                 <%--(MEMBRESIA HABILITADA)--%>
                 <li class="nav-item">
                     <a class="nav-link" href="programarReunion.jsp"><i class='bx bxs-calendar-plus me-2'></i>Programar Reunion</a>
                 </li>
+                <%
+                    }
+                %>
             </ul>
         </div>

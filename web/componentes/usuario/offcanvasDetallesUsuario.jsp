@@ -6,9 +6,9 @@
   <div class="offcanvas-body">
     <div>
         <div class="text-center">
-            <img src="../default.png" alt="" style="width: 80px" class="rounded-circle mb-3">
             <%
-              out.print("<h4>"+nombre_completo+"</h4>");
+              out.print("<img src='../default.png' alt='' style='width: 80px' class='rounded-circle mb-3 "+marco_premium+"'>");
+              out.print("<h4>"+corona+nombre_completo+"</h4>");
             %>
             <hr>
         </div>
