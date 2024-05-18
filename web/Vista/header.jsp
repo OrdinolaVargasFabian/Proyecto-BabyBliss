@@ -131,9 +131,16 @@
                             <li><hr class="dropdown-divider"></li>
                             <%
                                 //Se verifica si el usuario tiene una membresia
-                                if (membresia != "BabyGold") {
+                                if (membresia != "BabyGold" && perfil_usuario != 2) {
                             %>
                             <li><a class="dropdown-item" href="#"><i class='bx bxs-crown me-2'></i>Suscribirse</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <%
+                                //Se verifica si es un especialista para la opción de crear una guia
+                                } 
+                                if (perfil_usuario == 2) {
+                            %>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasAgregarGuia" role="button" aria-controls="offcanvasAgregarGuia"><i class='bx bxs-pen me-2'></i>Redactar Guia</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <%
                                 }
@@ -178,4 +185,11 @@
                     }
                 %>
             </ul>
+            <% 
+                if (perfil_usuario == 2){
+            %>
+            <%@ include file="../componentes/especialista/offcanvasAgregarGuia.jsp" %>
+            <%
+                }
+            %>
         </div>
