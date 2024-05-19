@@ -171,8 +171,8 @@
                     <a class="nav-link" href="#"><i class='bx bxs-store me-2'></i>Tienda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class='bx bxs-calendar me-2'></i>Calendario</a>
-                </li>
+                    <a class="nav-link" href="calendario.jsp"><i class='bx bxs-calendar me-2'></i>Calendario</a>
+                </li> 
                 <%
                     //Se verifica si el usuario tiene una membresia
                     if (membresia == "BabyGold") {
