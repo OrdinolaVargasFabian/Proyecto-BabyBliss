@@ -54,7 +54,7 @@
                 int perfil_usuario = 0;
                 String nombre_completo = null;
 
-                String membresia = null;
+                int membresia = 0;
                 //Se inicializa la variable marco_premium
                 String marco_premium = "";
                 //Se inicializa la variable corona para el nombre de los usuarios premium
@@ -72,12 +72,12 @@
 
                         nombre_completo = usuario.getNombre() + " " + usuario.getAppat() + " " + usuario.getApmat();
 
-                        if (usuario.getMembresia() != null && usuario.getMembresia() != ""){
+                        if (usuario.getMembresia() != 0){
                             membresia = usuario.getMembresia();
                         }
 
-                        marco_premium = membresia == "BabyGold" ? "border border-warning rounded-circle border-2" : "";
-                        corona = membresia == "BabyGold" ? "<i class='bx bxs-crown text-warning me-2'></i>" : "";
+                        marco_premium = membresia == 2 ? "border border-warning rounded-circle border-2" : "";
+                        corona = membresia == 2 ? "<i class='bx bxs-crown text-warning me-2'></i>" : "";
                     } else if (session.getAttribute("user").toString().contains("Especialista")) {
                         // out.print("Especialista");
                         perfil_usuario = 2;
@@ -131,7 +131,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <%
                                 //Se verifica si el usuario tiene una membresia
-                                if (membresia != "BabyGold" && perfil_usuario != 2) {
+                                if (membresia != 2 && perfil_usuario != 2) {
                             %>
                             <li><a class="dropdown-item" href="#"><i class='bx bxs-crown me-2'></i>Suscribirse</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -175,7 +175,7 @@
                 </li> 
                 <%
                     //Se verifica si el usuario tiene una membresia
-                    if (membresia == "BabyGold") {
+                    if (membresia == 2) {
                 %>
                 <%--(MEMBRESIA HABILITADA)--%>
                 <li class="nav-item">

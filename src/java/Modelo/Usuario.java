@@ -11,8 +11,8 @@ public class Usuario {
     private Date fechaNac;
     private String correo;
     private String password;
-    private String telefono;
-    private String membresia;
+    private int telefono;
+    private int membresia;
 
     public Usuario() {}
 
@@ -80,19 +80,19 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    public String getMembresia() {
+    public int getMembresia() {
         return membresia;
     }
 
-    public void setMembresia(String membresia) {
+    public void setMembresia(int membresia) {
         this.membresia = membresia;
     }
 }

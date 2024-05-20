@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %> <!-- Incorpora el código del archivo header -->
 <%
     //Se valida si el usuario tiene una membresia y evita cargar la página si no la tiene
-    if (membresia == "BabyGold") {
+    if (membresia == 2) {
 %>
 <h2 class="ms-3 mb-3 text-center fw-bold" style="color: #9999ff;">SELECCIONAR ESPECIALISTA</h2>
 <div class="card-datatable table-responsive bg-light p-3 rounded shadow">

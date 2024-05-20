@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Modelo.*;
+import DAO.*;
 
 @WebServlet(name = "srvIniciarSesion", urlPatterns = {"/srvIniciarSesion"})
 public class srvIniciarSesion extends HttpServlet {
@@ -105,14 +106,11 @@ public class srvIniciarSesion extends HttpServlet {
                     response.sendRedirect("Vista/login.jsp");
                 }
             } else {
-                Usuario user = new Usuario();
-                user.setNombre("Fabian");
-                user.setAppat("Prueba");
-                user.setApmat("Sesión");
-                user.setCorreo(request.getParameter("txtCorreo"));
-                user.setPassword(request.getParameter("txtClave"));
-                user.setMembresia("BabyGold");
-                if (user.getCorreo().equals("fabian25@gmail.com") && user.getPassword().equals("123")) {
+                String correo = request.getParameter("txtCorreo");
+                String contra = request.getParameter("txtClave");
+                UsuarioDAO dao = new UsuarioDAO();
+                Usuario user = dao.VerificarUsuario(correo, contra);
+                if (user != null) {
                     //se crea la sesion
                     HttpSession sesion = request.getSession();
                     //se guarda la informacion del usuario en la sesion
