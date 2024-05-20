@@ -168,7 +168,7 @@
                     <a class="nav-link" href="comunidad.jsp"><i class='bx bxs-group me-2'></i>Comunidad de apoyo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class='bx bxs-store me-2'></i>Tienda</a>
+                    <a class="nav-link" href="tienda.jsp"><i class='bx bxs-store me-2'></i>Tienda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="calendario.jsp"><i class='bx bxs-calendar me-2'></i>Calendario</a>
