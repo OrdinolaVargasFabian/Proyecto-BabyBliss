@@ -133,7 +133,7 @@
                                 //Se verifica si el usuario tiene una membresia
                                 if (membresia != 2 && perfil_usuario != 2) {
                             %>
-                            <li><a class="dropdown-item" href="#"><i class='bx bxs-crown me-2'></i>Suscribirse</a></li>
+                            <li><button class="dropdown-item" data-bs-toggle='modal' data-bs-target='#mdlAquirirMembresia'><i class='bx bxs-crown me-2'></i>Suscribirse</button></li>
                             <li><hr class="dropdown-divider"></li>
                             <%
                                 //Se verifica si es un especialista para la opción de crear una guia
@@ -193,3 +193,4 @@
                 }
             %>
         </div>
+        <%@ include file="../componentes/usuario/modalAdquirirMembresia.jsp" %> <!-- Incorpora el modal para la membresia -->
