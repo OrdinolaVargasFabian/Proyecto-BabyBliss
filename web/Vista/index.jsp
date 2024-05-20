@@ -78,7 +78,9 @@
                 <p>Esta guía proporciona información esencial para padres y cuidadores 
                   sobre cómo introducir una variedad de alimentos saludables en la dieta de un bebé en desarrollo.</p>
              </div>
-             <img src="../IMG/GUIA_ALIMENTACION1.jpg" class="rounded float-start zoom" alt=""/>
+            <a href="">
+             <img src="../IMG/GUIA_ALIMENTACION1.jpg" class="rounded float-start" alt=""/>
+            </a>
         </div>
         <!-- GUIA 2 --> 
         <div class="container d-flex bg-white rounded shadow p-4 my-4">
@@ -89,10 +91,76 @@
                    también incluye consejos sobre la preparación segura de alimentos, la textura adecuada según la etapa del bebé, 
                    la frecuencia de las comidas y señales de hambre/saciedad.</p>
              </div>
-            <img src="../IMG/GUIA_ALIMENTACION2.jpg" class="rounded float-end" alt=""/>
+            <a href="">
+             <img src="../IMG/GUIA_ALIMENTACION2.jpg" class="rounded float-end" alt=""/>
+            </a> 
         </div>
-    </div>    
- 
+       <!-------------------------------------------- EDUCACIÓN------------------------------------------------------------------------------------------> 
+        <div class="guiaEd pb-4 shadow"> 
+            <img src="../IMG/BANNER_GUIA_EDUCACION.jpg" alt=""/>
+            <p>GUIAS DE EDUCACIÓN</p>
+        </div>
+        <!-- GUIA 1 --> 
+        <div class="container d-flex bg-white rounded shadow p-4 my-4">
+            <div class="p-4">
+                <h3 class="mb-4" style="color: #9999ff">Guia de orientación del buen trato a niños y niñas</h3>
+                <hr>
+                <p>Esta guía proporciona estrategias prácticas para fomentar el desarrollo del lenguaje en bebés durante los primeros 24 meses de vida. 
+                    Incluye una serie de actividades diseñadas para estimular la capacidad de escucha,
+                    comprensión y expresión verbal de los bebés.</p>
+             </div>
+            <a href="">
+             <img src="../IMG/GUIA_EDUCACION1.jpg" class="rounded float-start" alt=""/>
+            </a>
+        </div>
+        <!-- GUIA 2 --> 
+        <div class="container d-flex bg-white rounded shadow p-4 my-4">
+            <div class="p-4">
+                <h3 class="mb-4" style="color: #9999ff">Guia de Estimulación Temprana</h3>
+                <hr>
+                <p>Esta guía ofrece una serie de actividades y consejos para padres y cuidadores sobre cómo promover el desarrollo cognitivo, 
+                    motor y emocional de los bebés desde el nacimiento hasta los 12 meses. 
+                    La estimulación temprana se centra en aprovechar los primeros años de vida del bebé, 
+                    cuando el cerebro es más receptivo a nuevos aprendizajes.</p>
+             </div>
+            <a href="">
+             <img src="../IMG/GUIA_EDUCACION2.jpg" class="rounded float-end" alt=""/>
+            </a> 
+        </div>
+        <!-------------------------------------------- HIGIENE------------------------------------------------------------------------------------------> 
+        <div class="guiaHi pb-4 shadow"> 
+            <img src="../IMG/BANNER_GUIA_HIGIENE.jpg" alt=""/>
+            <p>GUIAS DE HIGIENE</p>
+        </div>
+        <!-- GUIA 1 --> 
+        <div class="container d-flex bg-white rounded shadow p-4 my-4">
+            <div class="p-4">
+                <h3 class="mb-4" style="color: #9999ff">Guia para niños: Aseo Personal</h3>
+                <hr>
+                <p>Esta guía proporciona información esencial para padres y cuidadores sobre cómo mantener una adecuada higiene en los bebés, 
+                    desde el nacimiento hasta los 12 meses. Se incluyen instrucciones detalladas sobre el baño del bebé, 
+                    cambio de pañales, cuidado del cordón umbilical y la higiene bucal.</p>
+             </div>
+            <a href="">
+             <img src="../IMG/GUIA_HIGIENE1.jpg" class="rounded float-start" alt=""/>
+            </a>
+        </div>
+        <!-- GUIA 2 --> 
+        <div class="container d-flex bg-white rounded shadow p-4 my-4">
+            <div class="p-4">
+                <h3 class="mb-4" style="color: #9999ff">Guia de Higiene y Cuidado de la Piel del Bebé</h3>
+                <hr>
+                <p>Esta guía está diseñada para ayudar a los padres y cuidadores a mantener la piel del bebé saludable y 
+                    libre de irritaciones. Aborda temas cruciales como la elección de productos de higiene, 
+                    la rutina diaria de limpieza, y cómo proteger 
+                    la piel del bebé de factores ambientales adversos.</p>
+             </div>
+            <a href="">
+             <img src="../IMG/GUIA_HIGIENE2.jpg" class="rounded float-end" alt=""/>
+            </a> 
+        </div>
+    </div> 
+
     <!-------------------------------------------- ACCESO DIRECTO TIENDA --------------------------------------------------------------------------------------------->  
 
 </body>

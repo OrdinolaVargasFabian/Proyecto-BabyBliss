@@ -98,14 +98,13 @@
     color: #9999ff;  
 }
 /*********************************GUIAS*******************************************************/
-/* ALIMENTACIÓN */
 .guias{ /* CENTRAR TODO EL TEXTO DE LAS GUIAS */
     text-align: center; 
 }
-.guiaAl {  /* TAMAÑO CONT BLANCO */
+.guiaAl, .guiaEd, .guiaHi {  /* TAMAÑO CONT BLANCO */
     position: relative;
     background-color: white;
-    min-height: 130vh;
+    
 }
 .guiaAl h3{ /* TITULO */
     font-size: 60px;
@@ -117,11 +116,21 @@
     padding: 30px 40px;
 }
 
-.guiaAl img {
+.guiaAl img, .guiaEd img, .guiaHi img{
     border-radius: 15px;
+    margin-top: 30px;
 }
 /*GUIAS DE ALIMENTACIÓN*/
 .guiaAl p {
+    font-size: 75px;
+    font-weight: bold;
+    position: absolute;
+    top: 450px; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+.guiaEd p, .guiaHi p{
     font-size: 75px;
     font-weight: bold;
     position: absolute;
@@ -130,8 +139,7 @@
     transform: translateX(-50%);
     color: white;
 }
-/*EDUCACIÓN*/
-/*HIGIENE & SALUD*/
+
 
 
 
