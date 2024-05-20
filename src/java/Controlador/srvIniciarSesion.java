@@ -86,13 +86,12 @@ public class srvIniciarSesion extends HttpServlet {
     private void VerificarLogin(HttpServletRequest request, HttpServletResponse response) {
         try {
             if (request.getParameter("txtCorreo").contains("@babybliss.com")) {
-                Especialista esp = new Especialista();
-                esp.setNombre("Hugo");
-                esp.setAppat("Zapata");
-                esp.setApmat("Martinez");
-                esp.setCorreo(request.getParameter("txtCorreo"));
-                esp.setPassword(request.getParameter("txtClave"));
-                if (esp.getCorreo().equals("hzapatam@babybliss.com") && esp.getPassword().equals("456")) {
+                String correo = request.getParameter("txtCorreo");
+                String contra = request.getParameter("txtClave");
+                EspecialistaDAO dao = new EspecialistaDAO();
+                Especialista esp = dao.VerificarEspecialista(correo, contra);
+                
+                if (esp != null) {
                     //se crea la sesion
                     HttpSession sesion = request.getSession();
                     //se guarda la informacion del usuario en la sesion

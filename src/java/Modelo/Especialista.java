@@ -5,7 +5,7 @@ public class Especialista {
     private String nombre;
     private String appat;
     private String apmat;
-    private String dni;
+    private int dni;
     private String correo;
     private String password;
     private String telefono;
@@ -46,11 +46,11 @@ public class Especialista {
         this.apmat = apmat;
     }
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
