@@ -1,15 +1,19 @@
 package Modelo;
 
+import java.util.Date;
+
 public class Especialista {
     private int idEspecialista;
     private String nombre;
     private String appat;
     private String apmat;
     private int dni;
+    private Date fechaNac;
     private String correo;
     private String password;
     private String telefono;
-    private String especialidad;
+    private int especialidad;
+    private String foto;
     private String estado;
 
     public Especialista() {}
@@ -53,6 +57,14 @@ public class Especialista {
     public void setDni(int dni) {
         this.dni = dni;
     }
+    
+    public Date getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
+    }
 
     public String getCorreo() {
         return correo;
@@ -78,12 +90,20 @@ public class Especialista {
         this.telefono = telefono;
     }
 
-    public String getEspecialidad() {
+    public int getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
+    public void setEspecialidad(int especialidad) {
         this.especialidad = especialidad;
+    }
+    
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public String getEstado() {

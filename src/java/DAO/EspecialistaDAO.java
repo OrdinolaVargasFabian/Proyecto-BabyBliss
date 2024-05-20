@@ -21,10 +21,11 @@ public class EspecialistaDAO extends Conexion{
                 especialista.setAppat(rs.getString(3));
                 especialista.setApmat(rs.getString(4));
                 especialista.setDni(rs.getInt(5));
-                especialista.setCorreo(rs.getString(6));
-                especialista.setPassword(rs.getString(7));
-                especialista.setTelefono(rs.getString(8));
-                especialista.setEspecialidad(rs.getString(9));
+                especialista.setFechaNac(rs.getDate(6));
+                especialista.setCorreo(rs.getString(7));
+                especialista.setPassword(rs.getString(8));
+                especialista.setTelefono(rs.getString(9));
+                especialista.setEspecialidad(rs.getInt(10));
             }            
         }catch(Exception ex){
             System.out.println("ERROR al recuperar especialista : "+ex);
