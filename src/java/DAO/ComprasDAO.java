@@ -1,35 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import Modelo.Producto;
 import Modelo.DetalleCompra;
 import Modelo.Compra;
 import Persistencia.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Frank
- */
 public class ComprasDAO extends Conexion {
 
-    Connection con;
-    Conexion cn = new Conexion();
-    PreparedStatement ps;
-    ResultSet rs;
+
 
     public int IdCompra() {
         int idc = 0;
         String sql = "select max(idCompras) from compras";
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -43,7 +28,6 @@ public class ComprasDAO extends Conexion {
     public int guardarCompra(Compra co) {
         String sql = "insert into Compras(idCliente,idPago, FechaCompras,Monto,Estado)values(?,?,?,?,?)";
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, co.getIdCliente());
             ps.setInt(2, co.getIdPago());
@@ -59,7 +43,6 @@ public class ComprasDAO extends Conexion {
     public int guardarDetalleCompra(DetalleCompra dc) {
         String sql = "insert into Detalle_Compras(idProducto,idCompras, Cantidad, PrecioCompra)values(?,?,?,?)";
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, dc.getIdproducto());
             ps.setInt(2, dc.getIdcompra());
@@ -76,7 +59,6 @@ public class ComprasDAO extends Conexion {
         List lista = new ArrayList();
         String sql = "select * from compras where idCliente=" + id;
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -98,7 +80,6 @@ public class ComprasDAO extends Conexion {
         List lista = new ArrayList();
         String sql = "select DC.idDetalle, P.Foto, P.Nombres, DC.idCompras, DC.Cantidad, DC.PrecioCompra FROM detalle_compras DC inner join producto P on P.idProducto = DC.idProducto where idCompras=" + id;
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -120,7 +101,6 @@ public class ComprasDAO extends Conexion {
     public int Pagar(double monto) {
         String sql = "insert into pago(Monto)values(?)";
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setDouble(1, monto);
             ps.executeUpdate();
@@ -133,7 +113,6 @@ public class ComprasDAO extends Conexion {
         int idpago = 0;
         String sql = "select max(idPago) from pago";
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {

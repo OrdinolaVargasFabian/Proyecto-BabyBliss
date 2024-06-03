@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import Modelo.Producto;
@@ -10,20 +6,13 @@ import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import Persistencia.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 public class ProductoDAO extends Conexion {
 
-    Connection con;
-    Conexion cn = new Conexion();
-    PreparedStatement ps;
-    ResultSet rs;
+    
     int r = 0;
 
     public List buscar(String nombre) {
@@ -53,7 +42,6 @@ public class ProductoDAO extends Conexion {
         Producto p = new Producto();
         String sql = "select * from producto where IdProducto=" + id;
         try {
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -74,7 +62,7 @@ public class ProductoDAO extends Conexion {
         List lista = new ArrayList();
         String sql = "select * from producto";
         try {
-            ps = getConnection().prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Producto p = new Producto();
@@ -101,7 +89,6 @@ public class ProductoDAO extends Conexion {
         response.setContentType("image/*");
         try {
             outputStream = response.getOutputStream();
-            con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -120,7 +107,7 @@ public class ProductoDAO extends Conexion {
     public int AgregarNuevoProducto(Producto p) {
         String sql = "insert into producto(Nombres,Foto,Descripcion,Precio,Stock)values(?,?,?,?,?)";
         try {
-            ps = getConnection().prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getImagen());
             ps.setString(3, p.getDescripcion());
