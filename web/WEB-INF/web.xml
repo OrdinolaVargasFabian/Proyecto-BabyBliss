@@ -4,9 +4,25 @@
         <servlet-name>srvIniciarSesion</servlet-name>
         <servlet-class>Controlador.srvIniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarritoControlador</servlet-name>
+        <servlet-class>Controlador.CarritoControlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidoControlador</servlet-name>
+        <servlet-class>Controlador.PedidoControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvIniciarSesion</servlet-name>
         <url-pattern>/srvIniciarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarritoControlador</servlet-name>
+        <url-pattern>/CarritoControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidoControlador</servlet-name>
+        <url-pattern>/PedidoControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -7,7 +7,7 @@ public class Producto {
     private double precio;
     private int stock;
     private String imagen;
-    private int categoria;
+    private String categoria;
 
     public Producto() {}
 
@@ -59,11 +59,13 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public int getategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    
 }
