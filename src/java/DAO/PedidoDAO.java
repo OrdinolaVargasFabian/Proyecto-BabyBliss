@@ -5,27 +5,20 @@
 package DAO;
 
 import Persistencia.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import Modelo.Pedido;
 import java.sql.Statement;
 import Modelo.DetallePedido;
 import java.sql.SQLException;
 
 
-public class PedidoDAO {
-    private Connection cn = null;
-    private PreparedStatement ps = null;
-    private ResultSet rs = null;
+public class PedidoDAO extends Conexion{
     
     public int GenerarPedido(Pedido obj){
         int result = 0;
         try {
-            cn = Conexion.getConnection();
-            cn.setAutoCommit(false);//desabilitar 
+            con.setAutoCommit(false);//desabilitar 
             String sql = "INSERT INTO Pedido(id_usu, fecha_ped, total, estado) VALUES(?, NOW(), ?,?)";
-            ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, obj.getCliente().getId());
             ps.setDouble(2, obj.getTotal());
             ps.setString(3, obj.getEstado());
@@ -37,7 +30,7 @@ public class PedidoDAO {
                 if(rs.next()){
                     int idPed = rs.getInt(1);
                     
-                    ps = cn.prepareStatement("INSERT INTO Detalle_Pedido"
+                    ps = con.prepareStatement("INSERT INTO Detalle_Pedido"
                     + "(id_ped, id_prod, precio, cantidad) VALUES(?,?,?,?)");
                     for(DetallePedido carrito: obj.getDetalles()){
                         ps.setInt(1, idPed);
@@ -46,14 +39,14 @@ public class PedidoDAO {
                         ps.setInt(4, carrito.getCantidad());
                         ps.executeUpdate();
                     }
-                    cn.commit();//guardar cambios
+                    con.commit();//guardar cambios
                 }
                 
             }
         }catch(Exception e){
             try {
-                if(cn != null){
-                    cn.rollback();
+                if(con != null){
+                    con.rollback();
                     result =0;
                 }
             }catch (SQLException exl){
@@ -64,8 +57,8 @@ public class PedidoDAO {
             
         }finally{
             try{
-                if(cn != null){
-                    cn.close();
+                if(con != null){
+                    con.close();
                 }
                 if(ps != null){
                     ps.close();

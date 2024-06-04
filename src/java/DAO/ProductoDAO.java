@@ -1,30 +1,17 @@
-<<<<<<< HEAD
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import Modelo.Producto;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import Persistencia.Conexion;
 
-public class ProductoDAO {
-
-    private Connection cn = null;
-    private PreparedStatement ps = null;
-    private ResultSet rs = null;
+public class ProductoDAO extends Conexion{
 
     public ArrayList<Producto> ListarTodos() {
         ArrayList<Producto> lista = new ArrayList<Producto>();
 
         try {
-            cn = Conexion.getConnection();
             String sql = "*select * from Producto";
-            ps = cn.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -43,8 +30,8 @@ public class ProductoDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (cn != null) {
-                    cn.close();
+                if (con != null) {
+                    con.close();
                 }
                 if (ps != null) {
                     ps.close();
@@ -63,9 +50,8 @@ public class ProductoDAO {
         Producto obj = null;
 
         try {
-            cn = Conexion.getConnection();
             String sql = "*select * from Producto";
-            ps = cn.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
 
@@ -84,8 +70,8 @@ public class ProductoDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (cn != null) {
-                    cn.close();
+                if (con != null) {
+                    con.close();
                 }
                 if (ps != null) {
                     ps.close();
@@ -99,22 +85,7 @@ public class ProductoDAO {
         }
         return obj;
     }
-=======
-package DAO;
 
-import Modelo.Producto;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import Persistencia.Conexion;
-import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
-
-public class ProductoDAO extends Conexion {
-
-    
     int r = 0;
 
     public List buscar(String nombre) {
@@ -221,5 +192,4 @@ public class ProductoDAO extends Conexion {
         return r;
     }
 
->>>>>>> d86d9cf5ea20ecbddf712c70d2dd0bf078fbaebb
 }
